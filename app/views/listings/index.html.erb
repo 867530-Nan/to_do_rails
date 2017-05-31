@@ -1,0 +1,33 @@
+<h1>Listings</h1>
+
+<p> <%= link_to 'New Item', new_listing_path %> </p>
+
+<% @listings.each do |listing| %>
+	<h2> <%= listing.item %> </h2>
+	<h3> <%= listing.details %> </h3>
+	<%= link_to 'Show To-Do List', listing_path(listing) %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
