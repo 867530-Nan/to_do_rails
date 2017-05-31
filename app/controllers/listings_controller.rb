@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-  	@listing = Listing.find(params[:id])
+  	@listings = Listing.find(params[:id])
   end
 
   def new
@@ -17,6 +17,28 @@ class ListingsController < ApplicationController
   		redirect_to listings_path
   	else
   		render :new
+  	end
+  end
+
+  def edit
+  	@listings = Listing.find(params[:id])
+  end
+
+  def update
+  	@listings = Listing.find(params[:id])
+  	if @listings.update(listing_params)
+  		redirect_to listing_path(@listings)
+  	else
+  		render :edit
+  	end
+  end
+
+  def destroy
+  	@listings = Listing.find(params[:id])
+  	if @listings.destroy
+  		redirect_to listings_path
+  	else
+  		redirect_to listings_path
   	end
   end
   

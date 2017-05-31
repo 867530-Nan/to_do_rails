@@ -1,11 +1,22 @@
-<h1>Listings</h1>
+<h1>Yo Bitch, Do these things:</h1>
+<hr />
 
-<p> <%= link_to 'New Item', new_listing_path %> </p>
+<%= link_to 'Add Item', new_listing_path %>
 
-<% @listings.each do |listing| %>
-	<h2> <%= listing.item %> </h2>
-	<h3> <%= listing.details %> </h3>
-	<%= link_to 'Show To-Do List', listing_path(listing) %>
+<% if @listings.empty? %>
+	<h3>Congratulations, Your To-Do List is Empty!</h3>
+<% else %>
+	<ul>
+		<% @listings.each do |listing| %>
+			<li>
+				<%= link_to listing.item, listing_path(listing) %>
+				<span> | </span>
+				<%= link_to 'Edit Item', edit_listing_path(listing) %> 
+				<span> | </span>
+				<%= link_to 'Delete', listing_path(listing), method: :delete %>
+			</li>
+		<% end %>
+	</ul>
 <% end %>
 
 

@@ -1,11 +1,11 @@
-<h1>New Item</h1>
+<h1>Edit Item</h1>
 
 <%= form_for @listings do |f| %> 
 	<%= f.label :item %>
-	<%= f.text_area :item, autofocus: true, placeholder: "Type Here.." %>
+	<%= f.text_field :item, autofocus: true %>
 
 	<%= f.label :details %>
-	<%= f.text_area :details %>
+	<%= f.text_field :details %>
 
 	<%= f.submit %> 
 <% end %>
